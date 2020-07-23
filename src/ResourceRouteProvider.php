@@ -4,7 +4,6 @@ namespace MatthewMoray\Assessment;
 
 use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Storage;
 
 class ResourceRouteProvider extends RouteServiceProvider
 {
@@ -17,8 +16,8 @@ class ResourceRouteProvider extends RouteServiceProvider
      */
     public function register()
     {
-        if (!Storage::exists(base_path(self::FILE_NAME))) {
-            Storage::put(base_path(self::FILE_NAME), sprintf("<?php%s%suse MatthewMoray\Assessment\Route;%s%s", PHP_EOL, PHP_EOL, PHP_EOL, PHP_EOL)); 
+        if (!file_exists(base_path(self::FILE_NAME))) {
+            file_put_contents(base_path(self::FILE_NAME), sprintf("<?php%s%suse MatthewMoray\Assessment\Route;%s%s", PHP_EOL, PHP_EOL, PHP_EOL, PHP_EOL)); 
         }
         Route::namespace($this->namespace)
             ->group(base_path(self::FILE_NAME));
