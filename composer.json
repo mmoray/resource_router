@@ -1,0 +1,22 @@
+{
+    "name": "matthewmoray/assessment",
+    "description": "Composer Package for Wild Alaskan Company Assessment.",
+    "autoload": {
+        "psr-4": {
+            "MatthewMoray\\Assessment\\": "src"
+        }
+    },
+    "extra":{
+        "laravel": {
+            "providers": [
+                "MatthewMoray\\Assessment\\ResourceRouteProvider"
+            ]
+        }
+    },
+    "require": {
+        "illuminate/support": "^7.0"
+    },
+    "suggest": {
+        "illuminate/support": "Required to use the composer class (^7.0)."
+    }
+}
